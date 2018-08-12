@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MDN排序</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+//数字升序排列
+function compareNumbers(a,b) {
+    return a - b;
+}
+//数字逆序排列
+function compareNumbersReverse(a,b) {
+    return b - a; 
+}
+//字符串逆序排列
+function compareStringReverse(a,b) {
+    if(a < b){      //按某种排序标准进行比较，a大于b
+        return 1;
+    }
+    if(a > b){
+        return -1;
+    }
+    return 0;
+}
+//根据数组的第二个元素升序排列
+function sortBySec(a,b){
+    return b[1] - a[1];
+}
+//根据value的大小升序排序
+function sortByValue(a,b){
+    return a.value - b.value;
+}
+
+var arr1 = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+
+//将上面数组分别按从大到小以及从小到大进行排序后在console中输出
+
+var arr2 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+
+//将上面数组分别按字母顺序a-z及z-a进行排序，在console中输出
+
+var arr3 = [[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+
+//将上面的二维数组，按照每个元素中第二个数从大到小的顺序进行排序输出，输出结果应该为：
+
+//[[22, 63], [16, 60], [7, 44], [26, 35], [10, 14]]
+
+var arr4 = [
+    {
+        id: 1,
+        name: 'candy',
+        value: 40
+    }, {
+        id: 2,
+        name: 'Simon',
+        value: 50
+    }, {
+        id: 3,
+        name: 'Tony',
+        value: 45
+    }, {
+        id: 4,
+        name: 'Annie',
+        value: 60
+    }
+];
+
+//将上面数组分别按元素对象的value值从小到大进行排序后输出
+
+
+
+
+
+//JSON.stringify() 方法是将一个JavaScript值(对象或者数组)转换成一个JSON字符串
+console.log("数组:[43, 54, 4, -4, 84, 100, 58, 27, 140]升序结果为：" + JSON.stringify(arr1.sort(compareNumbers)));
+console.log("数组:[43, 54, 4, -4, 84, 100, 58, 27, 140]逆序结果为：" + JSON.stringify(arr1.sort(compareNumbersReverse)));
+console.log("数组:['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane']升序结果为：" + JSON.stringify(arr2.sort()));
+console.log("数组:['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane']逆序结果为：" + JSON.stringify(arr2.sort(compareStringReverse)));
+arr3.sort(sortBySec);
+console.log("数组:[[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]]按照每个元素中第二个数从大到小的顺序进行排序输出，输出结果应该为:" + JSON.stringify(arr3));
+console.log("数组:：" + JSON.stringify(arr4) + "将上面数组分别按元素对象的value值从小到大进行排序后输出:");
+console.log(JSON.stringify(arr4.sort(sortByValue)));
+</script>
+</body>
+</html>
